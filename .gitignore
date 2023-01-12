@@ -40,6 +40,9 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+/test-results/
+/playwright-report/
+/playwright/.cache/
 
 # TypeScript v1 declaration files
 typings/
