@@ -22,6 +22,9 @@ exports.HeaderPage = class HeaderPage {
     this.homeMenuItem = page.locator('#top-menu ul .home');
     this.projectsMenuItem = page.locator('#top-menu ul .projects');
     this.helpMenuItem = page.locator('#top-menu ul .help'); 
+
+    // search    
+    this.searchField = page.locator('//*[@id="header"]//label/a[@href="/projects/redmine/search"]/following::input');
  
   }
 
@@ -89,5 +92,7 @@ exports.HeaderPage = class HeaderPage {
   async isHomePage() {
     await this.homeMenuItem.click();     
     await expect(this.page).toHaveURL('https://www.redmine.org/');     
-  } 
+  }
+  
+  // search
 }
