@@ -22,6 +22,7 @@ exports.HeaderPage = class HeaderPage {
     this.homeMenuItem = page.locator('#top-menu ul .home');
     this.projectsMenuItem = page.locator('#top-menu ul .projects');
     this.helpMenuItem = page.locator('#top-menu ul .help'); 
+    this.registerMenuItem = page.locator('#top-menu .register');
  
   }
 
@@ -90,4 +91,9 @@ exports.HeaderPage = class HeaderPage {
     await this.homeMenuItem.click();     
     await expect(this.page).toHaveURL('https://www.redmine.org/');     
   } 
+
+  async clickRegisterMenuItem(){
+    await this.registerMenuItem.click();
+    await expect(this.page).toHaveURL('https://www.redmine.org/account/register');
+  }
 }
