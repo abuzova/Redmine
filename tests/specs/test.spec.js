@@ -2,6 +2,8 @@
 const { test, expect } = require('@playwright/test');
 const { HeaderPage } = require('../pages/header-page.js');
 const { LoginPage } = require('../pages/login-page.js');
+const { Constants } = require('../helper/constants.js');
+
 
 test.skip('Main menu', async ({ page }) => {
   const header = new HeaderPage(page);
@@ -27,15 +29,18 @@ test.skip('Top menu', async ({ page }) => {
   await header.isHomePage();
 });
 
-test('Verify on entering valid login and password, the customer can login', async ({ page }) => {  // need to add valid user name and password
+test('Verify on entering valid login and password, the customer can login', async ({ page }) => {  
   const header = new HeaderPage(page);
   const login = new LoginPage(page);
+  const constants = new Constants();
   await header.goto();
 
   await header.clickLoginMenuItem();
-  await login.setUsernameInput('ggg');
-  await login.setPasswordInput('ffjjf');
+  await login.setUsernameInput(constants.USER_NAME);
+  await login.setPasswordInput(constants.PASSWORD);
   await login.setAutoLoginCheсkBox();
   await login.clickSubmitButton();
+  await header.isMyAccountMenuItem(); 
+  
   
 });

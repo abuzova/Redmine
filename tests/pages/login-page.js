@@ -30,8 +30,7 @@ exports.LoginPage = class LoginPage {
   }
 
   async clickSubmitButton() {
-    await this.submitButton.click();     
-    // await expect(this.page).toHaveURL('https://www.redmine.org/'); // need to add account page   
+    await this.submitButton.click();  
   }
   
 }
