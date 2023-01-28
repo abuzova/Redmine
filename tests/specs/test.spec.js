@@ -4,31 +4,31 @@ const { HeaderPage } = require('../pages/header-page.js');
 const { RegisterPage } = require('../pages/register-page.js');
 const { LoginPage } = require('../pages/login-page.js');
 const { RandomStringGeneration } = require('../helper/generetion.js');
+const { Constants } = require('../helper/constants.js');
 
-test.skip('Main menu', async ({ page }) => {
+
+test('Main menu', async ({ page }) => {
   const header = new HeaderPage(page);
-  await header.goto();
+  await header. goto();
 
   await header.isOverviewPage();
   await header.isDownloadPage();
   await header.isActivityPage();
   await header.isRoadmapPage();
-  await header.isIssuesPage();
+  await header.isIssuesPage();  
   await header.isNewsPage();
   await header.isWikiPage();
   await header.isForumsPage();
   await header.isRepositoryPage();
 });
 
-test.skip('Top menu', async ({ page }) => {
+test('Top menu', async ({ page }) => {
   const header = new HeaderPage(page);
   await header.goto();
-
   await header.isProjectsPage();
   await header.isHelpPage();
   await header.isHomePage();
 });
-
 
 test('Verify registering with valid credentials', async ({ page }) => {
   const headerPage  = new HeaderPage(page);
@@ -60,6 +60,21 @@ test('Verify registering with valid credentials', async ({ page }) => {
   await registerPage.selectLanguageSelect(langValue);
   await registerPage.setIrcNickInput(login);
   await registerPage.clickReceiveSubmit();    
-  await loginPage.isVisibleNoticeBlock(login + '@dkd.com');  
+  await loginPage.isVisibleNoticeBlock(login + '@dkd.com');
 
 })
+
+test('Verify on entering valid login and password, the customer can login', async ({ page }) => {  
+  const header = new HeaderPage(page);
+  const login = new LoginPage(page);
+  const constants = new Constants();
+  await header.goto();
+
+  await header.clickLoginMenuItem();
+  await login.setUsernameInput(constants.USER_NAME);
+  await login.setPasswordInput(constants.PASSWORD);
+  await login.setAutoLoginCheсkBox();
+  await login.clickSubmitButton();
+  await header.isMyAccountMenuItem();   
+  
+});

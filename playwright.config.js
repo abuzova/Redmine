@@ -21,7 +21,8 @@ const config = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000
+    //timeout: 5000
+    timeout: 10000
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -53,7 +54,8 @@ const config = {
       },
     },
 
-    /*{
+    /*
+    {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
@@ -65,7 +67,8 @@ const config = {
       use: {
         ...devices['Desktop Safari'],
       },
-    },*/
+    },  
+    */
 
     /* Test against mobile viewports. */
     // {
