@@ -29,7 +29,7 @@ test.skip('Top menu', async ({ page }) => {
   await header.isHomePage();
 });
 
-test.skip('Searching', async ({ page }) => {
+test('Searching', async ({ page }) => {
   const header = new HeaderPage(page);
   const search = new SearchPage(page);
   //const constants = new Constants();
