@@ -1,0 +1,1 @@
+Element number of the array: 29
