@@ -20,6 +20,7 @@ exports.HeaderPage = class HeaderPage {
     
     // top menu    
     this.homeMenuItem = page.locator('#top-menu ul .home');
+
     this.projectsMenuItem = page.locator('#top-menu ul .projects');  
     this.helpMenuItem = page.locator('#top-menu ul .help');
     this.loginMenuItem = page.locator('#top-menu #account .login');
@@ -27,6 +28,12 @@ exports.HeaderPage = class HeaderPage {
 
     // top menu, logged in
     this.myAccountMenuItem = page.locator('#top-menu .my-account');
+    this.projectsMenuItem = page.locator('#top-menu ul .projects');
+    this.helpMenuItem = page.locator('#top-menu ul .help'); 
+
+    // search    
+    this.searchField = page.locator('//*[@id="header"]//label/a[@href="/projects/redmine/search"]/following::input');
+
  
   }
 
@@ -112,3 +119,7 @@ exports.HeaderPage = class HeaderPage {
   } 
 
 }
+  
+
+
+
